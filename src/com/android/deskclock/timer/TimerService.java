@@ -16,6 +16,8 @@
 
 package com.android.deskclock.timer;
 
+import static com.android.deskclock.uidata.UiDataModel.Tab.TIMERS;
+
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -27,8 +29,6 @@ import com.android.deskclock.data.DataModel;
 import com.android.deskclock.data.Timer;
 import com.android.deskclock.events.Events;
 import com.android.deskclock.uidata.UiDataModel;
-
-import static com.android.deskclock.uidata.UiDataModel.Tab.TIMERS;
 
 /**
  * <p>This service exists solely to allow {@link android.app.AlarmManager} and timer notifications
@@ -97,11 +97,6 @@ public final class TimerService extends Service {
         return new Intent(context, TimerService.class)
                 .setAction(ACTION_ADD_MINUTE_TIMER)
                 .putExtra(EXTRA_TIMER_ID, timerId);
-    }
-
-    public static Intent createUpdateNotificationIntent(Context context) {
-        return new Intent(context, TimerService.class)
-                .setAction(ACTION_UPDATE_NOTIFICATION);
     }
 
     @Override
